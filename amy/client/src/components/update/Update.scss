@@ -1,0 +1,178 @@
+@import "../../style.scss";
+
+
+    
+
+.update
+{
+    @include themify($themes)
+    {
+    background-image: url("../../materials/NenUpdate.jpg");
+    background-size: cover;
+    background-position: center;
+
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin:auto;
+    width:50%;
+    height:70%;
+    background-color: whitesmoke;
+    padding:50px;
+    z-index: 999;
+    border-radius: 20px;
+
+    @include laptop
+    {
+        width:70%;
+        height:auto;
+    }
+
+    h1
+    {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        color:whitesmoke;
+        font-weight: bold;
+    }
+
+    #errSub
+    {
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        font-size: large;
+        color:#cc4757
+    }
+
+    #closeBtn
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 15px 15px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background-color: #cc4757;
+        color:azure;
+    }
+
+    .form-inputs
+    {
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+
+        .input-box
+        {
+            flex:calc(50% - 10px); /* Chia đôi chiều rộng, trừ đi khoảng cách giữa các ô */
+            margin-right: 10px;
+            position: relative;
+
+
+            .input-field
+            {
+                width:100%;
+                height:55px;
+                padding:0 15px;
+                margin: 15px 0; //khoảng cách các textbox
+                color:azure;
+                background:rgba(255, 255, 255, 0.2);
+                border: none;
+                border-radius: 10px;
+                backdrop-filter:blur(20px);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                font-size: 16px;
+            }
+
+            .input-field::placeholder
+            {
+                color:azure;
+                font-size: 15px;
+            }
+
+            .input-submit
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 500;
+                gap:2px;
+                width:100%;
+                height:40px;
+                padding:0 15px;
+                margin-top: 5px;
+                color:azure;
+                background: #8694f4;
+                border:none;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                cursor:pointer;
+                transition:.3s;
+            }
+
+            .icon
+            {
+                position:absolute;
+                top:50%;
+                right:15px;
+                transform: translateY(-50%);
+                color:azure;
+            }
+        }
+
+        .input-boxImg 
+        {
+            flex: calc(50% - 10px); /* Chia đôi chiều rộng, trừ đi khoảng cách giữa các ô */
+            margin-right: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Căn giữa ảnh theo chiều ngang */
+            overflow: hidden; /* Đảm bảo ảnh không vượt ra ngoài khung chứa */
+            cursor: pointer; /* Thay đổi con trỏ chuột khi hover vào ảnh */
+            border-radius: 10px; /* Bo góc khung ảnh */
+            background: rgba(255, 255, 255, 0.2); /* Nền mờ */
+            backdrop-filter: blur(20px); /* Hiệu ứng nền mờ */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Đổ bóng khung ảnh */
+            height: 100px; /* Chiều cao của khung ảnh */
+        
+            &:hover 
+            {
+                background: rgba(255, 255, 255, 0.4); /* Thay đổi nền khi hover */
+            }
+        
+            img 
+            {
+                width: 100px; /* Độ rộng của ảnh */
+                height: 100px; /* Chiều cao của ảnh */
+                border-radius: 10px; /* Bo góc ảnh */
+                object-fit: cover; /* Đảm bảo ảnh phù hợp với khung mà không bị méo */
+                transition: transform 0.3s ease; /* Hiệu ứng chuyển đổi khi hover */
+        
+                &:hover 
+                {
+                    transform: scale(1.1); /* Phóng to ảnh khi hover */
+                }
+            }
+               
+            #titleIn 
+            {
+                display: none; /* Ẩn tiêu đề khung văn bản */
+            }
+        
+            #choseFile 
+            {
+                display: none; /* Ẩn nút chọn file */
+            }
+        }       
+    }
+}
+}

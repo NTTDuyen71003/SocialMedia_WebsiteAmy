@@ -1,0 +1,148 @@
+@import "../../style.scss";
+
+
+.rightbar
+{
+    @include themify($themes)
+    {
+    font-family: Lora;
+    position:sticky;  //ko bị xuyên chữ khi lướt bài viết
+    top:70px;
+    height:calc(100vh - 70px); //chặn ko bị xuyên bên cột trái
+    overflow: scroll; //có thể kéo nội dung chưa hiển thị hết để xem
+    background-color: themed("bg");
+    color:themed("textColor");
+    font-weight: 500;
+    padding-right: 250px;
+    // box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    flex:2.5;
+
+
+    @include mobile
+    {
+        display: none;
+    }
+
+    @include ipad
+    {
+        display: none;
+    }
+
+    @include laptop
+    {
+        padding-right: 0px;
+        flex:3;
+    }
+
+    &::-webkit-scrollbar //ẩn thanh hiển thị nd web bên phải khi kéo xuống
+    {
+        display: none;
+    }
+
+    .container
+    {
+        padding:20px;
+        // margin-left: 50px;
+
+        @include laptop
+        {
+            margin-left: 0px;
+        }
+
+        .item
+        {
+            -webkit-box-shadow:0px 0px 15px 1px rgba(0,0,0,0.09);
+            -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.09);
+            box-shadow:0px 0px 15px 1px rgba(0,0,0,0.09);
+            padding:20px; //tạo khoảng cách giữa các tiêu đề
+            margin-bottom: 20px; //tạo khoảng cách giữa các box
+            border-radius: 20px;
+            background-color: themed("weatherBG");
+
+            .weather-container 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 15px;
+                
+                @include laptop
+                {
+                    margin-top: 10px;
+                }
+
+                .weather-info 
+                {
+                    text-align: left;
+                    font-size: 18px;
+                    margin-top: -10px;
+
+                    @include laptop
+                    {
+                        margin-top: 0px;
+                    }
+
+                    #weather-description
+                    {
+                        margin-bottom: 25px;
+
+                        @include laptop
+                        {
+                            margin-bottom: 18px;
+                        }
+                    }
+                }
+            }
+
+            #weather
+            {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            #date
+            {
+                margin-top: 10px;
+                margin-right: 10px;
+                font-size: 18px;
+            }
+
+            #weather-icon
+            {
+                height:120px;
+                width: 120px;
+                margin-left: 50px;
+
+                @include laptop
+                {
+                    margin-left: 0px;
+                    height: 100px;
+                    width: 100px;
+                }
+            }
+
+            #temp
+            {
+                font-size: 18px;
+                margin-bottom: 25px;
+
+                @include laptop
+                {
+                    margin-left: 0px;
+                }
+            }
+        }
+
+        #imgCom
+        {
+            width: 100%;
+            -webkit-box-shadow:0px 0px 15px 1px rgba(0,0,0,0.09);
+            -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.09);
+            box-shadow:0px 0px 15px 1px rgba(0,0,0,0.09);
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    }
+}
+}

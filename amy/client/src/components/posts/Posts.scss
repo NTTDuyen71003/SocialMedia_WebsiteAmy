@@ -1,0 +1,13 @@
+@import "../../style.scss";
+
+
+
+.posts
+{
+    @include themify($themes)
+    {
+        display:flex;
+        flex-direction: column;
+        color:themed("textColor");
+    }
+}

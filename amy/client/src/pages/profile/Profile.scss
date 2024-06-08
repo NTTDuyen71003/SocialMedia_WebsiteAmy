@@ -1,0 +1,233 @@
+@import "../../style.scss";
+
+.profile
+{
+    font-family: Lora;
+
+    @include themify($themes)
+    {
+        background-color: themed("bg");
+
+        //chỉnh form bìa và ảnh đại diện
+        .images
+        {
+            width:100%;
+            height:300px;
+            position:relative;
+            
+            .background
+            {
+                width:80%;
+                height:100%;
+                margin-left: 200px;
+                
+                @include laptop
+                {
+                    width:80%;
+                    margin-left: 130px;
+                }
+            }
+
+            .profilePic
+            {
+                width:250px;
+                height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+                position:absolute;
+                left:0;
+                right:0;
+                margin:auto;
+                top:180px;
+            }
+        }
+
+
+        .profileContainer
+        {
+            //tạo box phụ bên dưới
+            padding:20px 70px;
+            margin: auto; // Đảm bảo profileContainer hiển thị ở giữa
+            max-width: 1000px;
+
+            @include mobile
+            {
+                padding:10px; //khoảng cách vs lề trang
+            }
+
+            @include ipad
+            {
+                padding:20px;
+            }
+
+            .uInfo
+            {
+                -webkit-box-shadow:0px 0px 15px -10px rgba(0,0,0,0.38);
+                -moz-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.38);
+                box-shadow:0px 0px 25px -10px rgba(0,0,0,0.38);
+                border-radius: 20px;
+                background-color: themed("bgFrame");
+                color:themed("textColor");
+                padding:50px;
+                //giãn cách các tiêu đề phụ
+                display:flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px; //tách khoảng cách giữa box giới thiệu và box bài viết
+
+                @include mobile
+                {
+                    flex-direction: column; //ngay hàng
+                    height:30vh;
+                    padding:20px;
+                    margin-top: 100px;
+                }
+
+                .left
+                {
+                    flex:1;
+                    display: flex;
+                    gap:10px;
+
+                    @include ipad
+                    {
+                        flex:0.7;
+                        flex-wrap: wrap; //xuống hàng
+                    }
+
+                    .Twitter
+                    {
+                        color:themed("textColor");
+                    }
+
+                    .Tiktok
+                    {
+                        color:themed("textColor");
+                    }
+
+                    .Dis
+                    {
+                        background-color:#5865F2;
+                        color:whitesmoke;
+                        width: 32px;
+                        height: 32px; 
+                        border-radius: 20%;
+                    }
+
+
+                    .Insta 
+                    {
+                        position: relative;
+                        width: 32px;
+                        height: 32px;                 
+                        border-radius: 20%;
+                        color:whitesmoke;
+                        background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf)
+                      }           
+                }
+
+                .center
+                {
+                    flex:1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap:10px;
+
+                    @include mobile
+                    {
+                        margin-top: 10px;
+                    }
+
+                    @include ipad
+                    {
+                        margin-top: 80px;
+                        display: flex;
+                        align-items: center;
+                        white-space: nowrap; // Đảm bảo tên không bị ngắt từ
+                        margin-left: 50px;
+                    }
+
+                    .Name
+                    {
+                        font-weight: 700;
+                        margin-top: 15px;
+                    }
+
+                    //địa chỉ và tên
+                    span
+                    {
+                        font-size: 30px;
+                        font-weight: 500;
+                    }
+
+
+                    .info
+                    {
+                        width:100%;
+                        display: flex;
+                        flex-direction: column; //nằm thành cột
+                        align-items: center;
+                        justify-content: space-around;
+
+                        
+                        .item
+                        {
+                            align-items: center;
+                            display: flex;
+                            gap:5px;
+                            color:themed("textColorSoft");
+                            margin-bottom: 20px;
+                        }
+
+                        //địa chỉ
+                        span
+                        {
+                            font-size: 16px;      
+                        }
+                    }
+
+                    button
+                    {
+                        font-family: Lora;
+                        font-size: 16px;
+                        border:none;
+                        background-color: #8694f4;
+                        color:whitesmoke;
+                        padding:10px 20px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        margin-top: 20px;
+                        display: flex;
+                        align-items: center;
+                        font-weight: 500;
+
+                        #icon
+                        {
+                            margin-right: 2px;
+                            font-weight: 500;
+                        }
+
+                        #icons
+                        {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+
+                .right
+                {
+                    flex:1;
+                    display: flex;
+                    justify-content: flex-end; //ra cúi
+                    gap:10px;
+
+                    @include mobile
+                    {
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

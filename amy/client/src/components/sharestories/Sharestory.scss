@@ -1,0 +1,147 @@
+@import "../../style.scss";
+
+.sharestories
+{
+  @include themify($themes) 
+  {
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 20px;
+    background-color: themed("bgFrame");
+    color: themed("textColor");
+    margin-bottom: 20px;
+
+    .container 
+    {
+      padding: 20px;
+
+      .top 
+      {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left 
+        {
+          display: flex;
+          align-items: center;
+          flex: 3;
+
+          img 
+          {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          input 
+          {
+            border: none;
+            outline: none;
+            padding: 20px 10px;
+            background-color: transparent;
+            width: 60%;
+            color: themed("textColor");
+            font-size: 16px;
+            margin-left:15px;
+          }        
+        }
+
+
+        .right 
+        {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+
+          .file 
+          {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 0px;
+          }
+        }
+      }
+
+      hr 
+      {
+        margin: 20px 0px;
+        border: none;
+        height: 0.5px;
+        background-color: themed("border");
+      }
+
+
+      .bottom 
+      {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left 
+        {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .item 
+          {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+
+            img 
+            {
+              height: 20px;
+            }
+
+            span 
+            {
+              color: themed("textColor");
+            }
+
+            .emotions
+            {
+              color: rgb(165, 85, 74);
+            }
+
+            .itag
+            {
+              color: themed("Iconshare");
+              margin-left: 5px;
+            }
+          }
+        }
+
+
+        .right 
+        {
+
+          button 
+          {
+            font-family: Lora;
+            border: none;
+            padding: 15px;
+            color: whitesmoke;
+            cursor: pointer;
+            background-color: #8694f4;
+            border-radius: 50px;
+            font-size: 16px;
+            position: relative;
+          }
+
+          button:disabled 
+          {
+            background-color: #DDE2EC;
+            color:rgba(0, 0, 0, 0.25);
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}

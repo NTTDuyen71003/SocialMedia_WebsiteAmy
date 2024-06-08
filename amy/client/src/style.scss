@@ -1,0 +1,93 @@
+$theme-map: null;
+
+$themes:
+(
+    light:
+    (
+        textColor:#02000c,
+        bg:whitesmoke,
+        bgFrame:#f6f3f3,
+        border:lightgray,
+        textHover:whitesmoke,
+        leftBG:whitesmoke,
+        leftBGBoard:#dfcff3,
+        leftBGUser:#fee6f5,
+        weatherBG:#c6def1,
+        postInfoBG:whitesmoke,
+        commentBG:#DDE2EC
+    ),
+
+    dark:
+    (
+        textColor:whitesmoke,
+        bg:#0c0f1d,
+        bgFrame:#1b1d2a,
+        border:#ccadb1,
+        textHover:whitesmoke,
+        leftBG:#0c0f1d,
+        leftBGBoard:#1b1d2a,
+        leftBGUser:#242734,
+        weatherBG:#1b1d2a,
+        postInfoBG:#02000c, 
+        commentBG:#0c0f1d      
+    ),
+);
+
+//đổi theme
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+@function themed($key) 
+{
+    @return map-get($theme-map, $key);
+}
+
+.content {
+  @include themify($themes) {
+    flex:6;
+    background-color: themed('bg');
+  }
+}
+
+//giao diện ver phone
+@mixin mobile
+{
+  @media(max-width:480px)
+  {
+    @content;
+  }
+}
+
+//giao diện ver ipad
+@mixin ipad
+{
+  @media(max-width:960px)
+  {
+    @content;
+  }
+}
+
+@mixin laptop
+{
+  @media(max-width:1366px)
+  {
+    @content;
+  }
+}
+  

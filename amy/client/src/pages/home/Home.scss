@@ -1,0 +1,31 @@
+@import "../../style.scss";
+
+.home
+{
+    @include themify($themes)
+    {
+        background-color: themed("bg");
+        // padding:20px 150px;
+        padding-top: 20px; 
+        margin-left: 250px;
+        margin-right: 30px;
+
+
+        @include mobile
+        {
+            padding:10px;
+        }
+
+        @include ipad
+        {
+            padding:20px;
+        }
+
+        @include laptop
+        {
+            padding: 20px 20px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+}

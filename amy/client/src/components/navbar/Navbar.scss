@@ -1,0 +1,227 @@
+@import "../../style.scss";
+
+
+.navbar
+{
+    @include themify($themes)
+    {
+    font-family: Lora;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px 20px;
+    height:50px; //khoảng cách từ bìa trái web xuống các tiêu đề
+    // border-bottom: 1px solid themed("border"); //dòng phân chia ranh giới header
+    position:sticky;  //ko bị xuyên chữ khi lướt bài viết
+    top:0;
+    background-color:themed("bg");  //header trắng
+    color:themed("textColor");
+    z-index: 999; //chặn các bài viết khi lướt lên bị xuyên qua thanh header
+    box-sizing: content-box; //fix lỗi box bị lố trang
+
+    .left
+    {
+        display: flex; 
+        align-items: center; //Chỉnh các thẻ tiêu đề ngay hàng
+        justify-content: center;
+
+
+        a
+        {
+            display: flex;
+        }
+
+        #title //Des tiêu đề
+        {
+            font-family: "Genshin Impact DRIP FONT",sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #667CE6,rebeccapurple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        //Logo
+        img
+        {
+            max-height: 100px;
+            width: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+
+            // @include laptop
+            // {
+            //     margin-left:60px;
+            // }
+        }
+    }
+
+
+    .center
+    {
+        display: flex;
+        align-items: center;
+        gap:30px;
+        margin-left: 100px;
+
+        .search 
+        {
+            display: flex;
+            align-items: center;
+            background-color:themed("bgFrame");
+            border-radius: 30px;
+            padding: 5px 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border:1px solid themed("border");
+            width: 400px;
+            margin-left: 150px;
+          
+            @include laptop 
+            {
+                margin-right: 100px;
+                margin-left: 0px;
+                width: 350px;
+            }
+          
+            input 
+            {
+                flex: 1;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                color: themed("textColor");
+                padding: 8px 0;
+          
+                @include mobile 
+                {
+                    display: none;
+                }
+            
+                @include ipad 
+                {
+                    width: 250px;
+                }
+            }
+        }
+
+        .search:hover
+        {
+            border-color: #8694f4;
+        }
+
+        .user-list-container 
+        {
+            position: absolute;
+            top: 85%;
+            width: 18%;
+            margin-left: 10px;
+            background-color: themed("bgFrame");
+            border: 1px solid themed("border");
+            border-top:none;
+            border-top: transparent;
+            // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+
+            @include laptop
+            {
+                width: 20%;
+            }
+        }
+
+        .user-list-container:hover
+        {
+            border: 1px solid #8694f4;
+            border-top:none;
+        }
+
+        .user-list 
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Adjust the spacing between user items */
+            margin:10px;
+        }
+
+        .user-item 
+        {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Adjust the spacing between the image and the username */
+            margin-left: 20px;
+        }
+
+        .user-item img 
+        {
+            width: 30px; /* Adjust the size of the profile picture */
+            height: 30px;
+            border-radius: 50%; /* Make the profile picture circular */
+        }
+    }
+
+    .right
+    {
+        display: flex;
+        align-items: center;
+        gap:30px;
+        justify-content: center;
+        margin-right: 350px;
+
+        @include laptop
+        {
+            margin-right: 80px;
+        }
+       
+        .icon
+        {
+            cursor: pointer;
+            font-size: 25px;
+            display: inline-block;
+            position: relative;
+            position: relative;
+
+            @include laptop
+            {
+                margin-left:0px;
+            }
+        }
+
+
+        @include mobile
+        {
+            width:200px;
+        }
+
+        .user
+        {
+            display: flex;
+            align-items: center;
+            gap:10px;
+            font-weight:500;
+       
+            //ẩn user navbar trên giao diện ipad
+            @include ipad
+            {
+                display:none;
+            }
+
+            img
+            {
+                width:40px;
+                height:40px;
+                border-radius: 50%;
+                object-fit:cover;
+            }
+
+            span
+            {
+                font-size:17px;
+                font-weight: 700;
+            }
+        }
+
+    }
+}
+}
