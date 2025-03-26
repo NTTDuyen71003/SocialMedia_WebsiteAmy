@@ -4,8 +4,8 @@ export const db=mysql.createConnection(
     {
         host:"localhost",
         user:"root",
-        password:"Songtimem9$",
-        database:"amy",
+        password:"",
+        database:"",
         charset: 'utf8mb4'
     }
 )
